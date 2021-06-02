@@ -51,5 +51,11 @@ var trains = [
 ];
 
 $(document).ready(function () {
+	$("#from, #to, #calendar").val("");
 	$("#btnSearch").button();
+	$("#from, #to").autocomplete({source:stations,
+		select:function(event, ui){
+			$(this).val(ui.item.label + " - " + ui.item.value);
+			return false;
+		}});
 });
