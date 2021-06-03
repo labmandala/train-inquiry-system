@@ -52,6 +52,26 @@ var trains = [
 
 $(document).ready(function () {
 	$("#from, #to, #calendar").val("");
+	$("#btnSearch").click(function(){
+		var fromStation = $("#from").val().split(" - ")[1];
+		var toStation = $("#to").val().split(" - ")[1]; 
+		var trainsArr = [];
+		$.each(trains, function(index, value){
+			for(key in value)
+			{
+				if (key == "stops")
+				{
+					if (jQuery.inArray(fromStation, value[key]) != -1 &&
+					    jQuery.inArray(toStation, value[key]) != -1) 
+					{
+						trainsArr.push(value["number"]);
+						trainsArr.push(value["name"]);
+					}
+				}
+			}
+		}); 
+		// alert(trainsArr);
+	});
 	$("#calendar").datepicker({dateFormat:"dd MM yy (DD)", minDate:new Date(), maxDate:"+2m"});
 	$("#btnSearch").button();
 	$("#from, #to").autocomplete({source:stations,
