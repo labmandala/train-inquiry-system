@@ -52,7 +52,7 @@ var trains = [
 
 $(document).ready(function () {
 	$("#from, #to, #calendar").val("");
-	$("#calendar").datepicker({dateFormat:"dd MM yy (DD)"});
+	$("#calendar").datepicker({dateFormat:"dd MM yy (DD)", minDate:new Date(), maxDate:"+2m"});
 	$("#btnSearch").button();
 	$("#from, #to").autocomplete({source:stations,
 		select:function(event, ui){
