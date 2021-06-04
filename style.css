@@ -6,6 +6,11 @@
     margin: 70px;
     padding: 10px;
     background: #6eb7d6;
+    float: left;
+}
+
+#table {
+    display: none;
 }
 
 h2 {
