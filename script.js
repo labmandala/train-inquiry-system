@@ -71,6 +71,24 @@ $(document).ready(function () {
 			}
 		}); 
 		// alert(trainsArr);
+		var content;
+		if (trainsArr.length == 0)
+		{
+			content = "<p><b>Sorry!!! There is no train in this route!</b></p>"
+		}
+		else 
+		{
+			content = "<table><tr><th>Train No:</th><th>Train Name:</th></tr>";
+			for (var j=0;j<trainsArr.length;)
+			{
+				var k = 1;
+				content += "<tr><td>" + trainsArr[j] + "</td><td>" + trainsArr[j+k] + "</td></tr>";
+				j = j + 2;
+			}
+			content += "</table>";
+		}
+		$("#result").html(content);
+		$("#table").css("display", "block");
 	});
 	$("#calendar").datepicker({dateFormat:"dd MM yy (DD)", minDate:new Date(), maxDate:"+2m"});
 	$("#btnSearch").button();
